@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="https://www.thymleaf.com">
+<html lang="en" xmlns:th="https://www.thymleaf.com">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -53,25 +53,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-					<td>@twitter</td>
+				<tr th:each="b:${book}">
+					<th scope="row" th:text="${b.id}"></th>
+					<td th:text="${b.name}"></td>
+					<td th:text="${b.author}"></td>
+					<td th:text="${b.price}"></td>
+					<td><a class="btn btn-secondary btn-sm">Add to my Book</a></td>
 				</tr>
 			</tbody>
 		</table>
