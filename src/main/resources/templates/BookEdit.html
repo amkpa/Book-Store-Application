@@ -17,7 +17,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand text-white" href="#">Book Store</a>
+			<a class="navbar-brand text-white" href="/">Book Store</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -30,8 +30,8 @@
 						aria-current="page" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="available_books">Available Books</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="my_books">My
-							Books</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="my_books">My Books</a></li>
 				</ul>
 				<div>
 					<a class="nav-link text-white" href="book_register">New Book
@@ -42,22 +42,28 @@
 	</nav>
 
 	<div class="container my-5 p-5" style="border: 1px solid black;">
-	<h4 class="text-center">New Book Register</h4>
-		<form class="col=md-4 offset-md-4" th:action="@{/save}" method="POST">
+		<h4 class="text-center">Edit Book</h4>
+
+		<form class="col=md-4 offset-md-4" th:action="@{/save}" method="POST"
+			th:object="${book}">
+			<input type="hidden" id="id" th:value="${book.id}">
 			<div class="mb-3">
-				<label for="name" class="form-label">Name</label> <input
-					type="text" class="form-control" name="name">
+				<label for="name" class="form-label">Name</label> <input type="text"
+					class="form-control" name="name" th:value="${book.name}">
 			</div>
 			<div class="mb-3">
 				<label for="name" class="form-label">Author</label> <input
-					type="text" class="form-control" name="author">
+					type="text" class="form-control" name="author"
+					th:value="${book.author}">
 			</div>
 			<div class="mb-3">
 				<label for="name" class="form-label">Price</label> <input
-					type="text" class="form-control" name="price">
+					type="text" class="form-control" name="price" th:value="${book.price}">
 			</div>
 
-			<center><button type="submit" class="btn btn-primary">Submit</button></center>
+			<center>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</center>
 		</form>
 	</div>
 

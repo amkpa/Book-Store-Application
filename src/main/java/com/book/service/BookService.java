@@ -19,7 +19,12 @@ public class BookService {
 	
 	public List<Book> fetch() {
 		return repo.findAll();
-		
+	}
+	public Book getBookbyId(int id) {
+		return repo.findById(id).get();
 	}
 
+	public void deletebyId(int id) {
+		repo.deleteById(id);
+	}
 }

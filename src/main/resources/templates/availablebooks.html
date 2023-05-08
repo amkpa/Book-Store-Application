@@ -17,7 +17,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand text-white" href="#">Book Store</a>
+			<a class="navbar-brand text-white" href="/">Book Store</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -30,8 +30,8 @@
 						aria-current="page" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link text-white"
 						href="available_books">Available Books</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="#">My
-							Books</a></li>
+					<li class="nav-item"><a class="nav-link text-white"
+						href="my_books">My Books</a></li>
 				</ul>
 				<div>
 					<a class="nav-link text-white" href="book_register">New Book
@@ -41,7 +41,7 @@
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="container my-5 col-md-5">
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -58,7 +58,13 @@
 					<td th:text="${b.name}"></td>
 					<td th:text="${b.author}"></td>
 					<td th:text="${b.price}"></td>
-					<td><a class="btn btn-secondary btn-sm">Add to my Book</a></td>
+					<td><a class="btn btn-secondary btn-sm"
+						th:href="@{/mylist/{id}(id=${b.id})}">Add to my Book</a>
+						
+						
+						 <a style="color: blue;"th:href="@{/editbook/{id}(id=${b.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
+						 <a style="color: red" th:href="@{/deletebook/{id}(id=${b.id})}"><i class="fa-solid fa-trash"></i></a>
+				 </td>
 				</tr>
 			</tbody>
 		</table>
@@ -70,5 +76,7 @@
 		crossorigin="anonymous">
 		
 	</script>
+	<script src="https://kit.fontawesome.com/571314369d.js"
+		crossorigin="anonymous"></script>
 </body>
 </html>
