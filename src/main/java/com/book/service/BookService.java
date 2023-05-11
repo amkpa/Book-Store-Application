@@ -14,7 +14,16 @@ public class BookService {
 	private BookRepo repo;
 
 	public void save(Book book) {
-		repo.save(book);
+		Book bk = repo.findByName(book.getName());
+		if(bk==null)
+			repo.save(book);
+		else {
+			bk.setAuthor(book.getAuthor());
+			bk.setName(book.getName());
+			bk.setPrice(book.getPrice());
+			repo.save(bk);
+		}
+			
 	}
 	
 	public List<Book> fetch() {

@@ -8,4 +8,6 @@ import com.book.Entity.Book;
 @Repository
 public interface BookRepo extends JpaRepository<Book, Integer> {
 
+	public Book findByName(String name);
+
 }
